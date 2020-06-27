@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="2_2.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<style>
+    body{
+        margin-top: 5%;
+       background: linear-gradient(to top,rgb(28, 73, 88),rgb(111, 111, 224),lightblue) fixed;
+    }
+    .center{
+       
+        text-align: center;
+
+    }
+    .input{
+        
+        padding:20px;
+         font-size: 120%;
+        width: 30%;
+        border-radius: 100%;
+        box-shadow: 3px 10px 20px black;
+        outline: none;        
+    }
+    .up1{
+        background-color: lightslategray;
+        padding: 1% 2% 1% 2%;
+        margin: 1%;
+        font-weight: bold;
+        font-size: 100%;
+        border-radius: 100%;
+        box-shadow: 3px 10px 20px black;
+        outline: none;
+        }
+        .up2{
+        background-color:lightslategray;
+        padding: 1% 2% 1% 2%;
+        margin: 1%;
+        font-weight: bold;
+        font-size: 100%;
+        border-radius: 100%;
+        box-shadow: 3px 10px 20px black;
+        outline: none;
+        }
+    .butt{
+  
+       padding: 1% 2% 1% 2%;
+        margin: 1%;
+        font-size: 100%;
+        font-weight: bolder;
+        border-radius: 100%;
+        box-shadow: 3px 10px 20px black;
+        background-color: lightsalmon; 
+        outline: none;
+        }
+    .dott{
+        padding: 1% 20px 1% 20px;
+        margin: 1% 5px  1%  5px;
+        font-size: 100%;
+        font-weight: bolder;
+        border-radius: 100%;
+        box-shadow: 3px 10px 20px black;
+        background-color: lightsalmon; 
+        outline: none;
+    }
+    .no{
+        padding: 1% 2% 1% 2%;
+        margin: 1%;
+        border-radius: 100%;
+        font-size: 100%;
+        font-weight: bold;
+        box-shadow: 3px 10px 20px black;
+        background-color: lightgreen; 
+        outline: none;
+        }
+
+    .zero{
+        padding: 1% 2% 1% 2%;
+        margin: 1%;
+        width: 13%;
+        font-weight: bold;
+        font-size: 100%;
+        border-radius: 100%;
+        box-shadow: 3px 10px 20px black;
+        background-color: lightgreen; 
+        outline: none;
+        }
+    .equal{
+        padding: 1% 2% 1% 2%;
+        margin: 1%;
+        width: 22%;
+        font-weight: bold;
+        font-size: 100%;
+        border-radius: 100%;
+        box-shadow: 3px 10px 20px black;
+        background-color: lightblue; 
+        outline-style: none;
+    }
+    
+    .no:hover ,.zero:hover{
+background-color: yellow;
+cursor: pointer;
+    }
+    .up1:hover{
+background-color: blueviolet;
+cursor: pointer;
+    }
+    .up2:hover{
+        background-color: blue;
+        cursor: pointer;
+    }
+    .butt:hover , .dott:hover{
+        background-color: aqua;
+        cursor: pointer;
+    }
+    .equal:hover{
+        background-color: pink;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+    <div class="center">
+    <form name="form1">
+<input class="input" type="text" name="data1">
+    </form>
+    <br />
+    <div class="bor">
+<input class="up1" type="button" value="C" onclick="clr()">
+<button class="up2"   onclick="back()"><i class="fas fa-arrow-left"></i></button>
+<button class="butt"   onclick="root()"><i class='fas fa-square-root-alt'style="font-size:15px;margin-left:.5%" >√x</i></button>
+<button class="butt" onclick="square()"><i class="fas fa-superscript"></i></button>
+<br />
+
+<input class="no" type="button" value="7" onclick="insert(7)">
+<input class="no" type="button" value="8" onclick="insert(8)">
+<input class="no" type="button" value="9" onclick="insert(9)">
+<button class="butt" onclick="insert('/')"><i class="fas fa-divide"></i></button>
+<br />
+<input class="no" type="button" value="4" onclick="insert(4)">
+<input class="no" type="button" value="5" onclick="insert(5)">
+<input class="no" type="button" value="6" onclick="insert(6)">
+<button class="butt" onclick="insert('*')"><i class="fas fa-times"></i></button>
+
+<br />
+<input class="no" type="button" value="1" onclick="insert(1)" >
+<input class="no" type="button" value="2" onclick="insert(2)">
+<input class="no" type="button" value="3" onclick="insert(3)">
+<button class="butt" onclick="insert('-')"><i class="fas fa-minus"></i></button>
+
+<br />
+<input class="zero" type="button" value="0" onclick="insert(0)">
+<button class="butt" onclick="insert('.')">.</button>
+<button class="butt" onclick="insert('+')"><i class="fas fa-plus"></i></button>
+
+<br/>
+<button class="equal" onclick="equal()"><i class="fas fa-equals"></i></button>
+</div>
+</div></div>
+<!..         //        javascript          //            ..> 
+<script>
+    function insert(num) {
+    form1.data1.value = form1.data1.value + num; 
+    }
+    function equal() { 
+        form1.data1.value = eval(form1.data1.value) ;      
+    }
+    function clr() {
+        form1.data1.value = "" ;      
+        
+    }
+    function back() {
+           var back =form1.data1.value;
+        form1.data1.value =  form1.data1.value.slice(0,back.length-1);
+    }
+    function root() {
+       var root1 =  form1.data1.value; 
+       form1.data1.value = Math.sqrt(root1);
+    }
+    function square() {
+        var value1 = (form1.data1.value);
+        value1 = value1 * value1 ; 
+        form1.data1.value =  value1 ;
+    }
+</script>  
+</body>
+</html>
